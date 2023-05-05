@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 has_many :books, dependent: :destroy
+has_many :book_comments, dependent: :destroy
+has_many :favorites, dependent: :destroy
 validates :name, uniqueness: true
 validates :name, length: { minimum: 2 } #最低でも2文字以上であるか
 validates :name, length: { maximum: 20 } #6文字以内であるか
